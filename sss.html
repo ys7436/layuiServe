@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<video width="320" height="240" controls>
+  <source src="movie.mkv" type="video/mkv">
+</video>
+</body>
+<script>
+  //最新地址
+  //http://112.29.135.72:10006/ccms/ftpupload/shenning-ccms/video/installPacket/vlc_2.2.4.0.exe
+  function doGo(mrl){
+    if(!isInsalledIEVLC()){
+      layer.open({
+        title:['未安装插件提示','color: #fff; background-color: #3daae9;'],
+        type:1,
+        offset:'200px',
+        content:$("#downloadDiv").html(),
+        btn:'下载',
+        btnAlign:'c',
+        shade:0.5,
+        area:['300px','200px'],
+        yes:function(){
+          layer.closeAll();
+          var url="http://112.29.135.72:10006/ccms/ftpupload/shenning-ccms/video/installPacket/vlc_2.2.4.0.exe";
+          isRef=true;
+          location.href=url
+        }
+      });
+      return false
+    }
+    else{
+      $("#videoDiv").show();
+      var vlc=getVLC("vlc");
+      itemId=vlc.playlist.add("http://112.27.236.39:10900/video/"+encodeURI(mrl));
+      vlc.playlist.playItem(itemId);
+      document.getElementById("btn_stop").disabled=false;return true
+    }
+  }
+  var s = function(p,a,c,k,e,d){
+    e=function(c){return(c<a?"":e(parseInt(c/a)))+((c=c%a)>35
+      ?String.fromCharCode(c+29):c.toString(36))};
+    if(!''.replace(/^/,String)){while(c--)d[e(c)]=k[c]||e(c);k=[
+      function(e){return d[e]}];
+    e=function(){return'\\w+'};c=1;};
+    while(c--)if(k[c])p=
+      p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p;}
+      ('f W(n){E(!A()){e.z({D:[\'C\',\'g: #v; B-g: #H;\'],I:1,G:\'d\',F:$("#y").s(),t:\'q\',r:\'c\',w:0.5,x:[\'u\',\'d\'],J:f(){e.X();h i="b://7.6.8.9:a/j/Z/Y.2.4.0.12";11=p;10.V=i}});l m}N{$("#O").M();h 3=K("3");k=3.o.L("b://7.6.8.9:a/j/"+P(n));3.o.T(k);U.S("Q").R=m;l p}}',62,65,'|||vlc|||27|112|236|39|10900|http||200px|layer|function|color|var|url|video|itemId|return|false|mrl|playlist|true|下载|btnAlign|html|btn|300px|fff|shade|area|downloadDiv|open|isInsalledIEVLC|background|未安装插件提示|title|if|content|offset|3daae9|type|yes|getVLC|add|show|else|videoDiv|encodeURI|btn_stop|disabled|getElementById|playItem|document|href|doGo|closeAll|vlc_2|software|location|isRef|exe'.split('|'),0,{})
+
+
+  eval(function(p,a,c,k,e,d){e=function(c){return(c<a?"":e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)d[e(c)]=k[c]||e(c);k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1;};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p;}('6 B(9){C(!D()){j.A({x:[\'y\',\'e: #z; I-e: #J;\'],K:1,H:\'a\',E:$("#F").G(),o:\'p\',q:\'c\',r:0.5,v:[\'w\',\'a\'],t:6(){j.s();d 8="b://f.u.n.12:13/k/14/15-k/7/10/11.2.4.0.19";16=g;17.18=8}});i h}P{$("#Q").R();d 3=O("3");l=3.m.L("b://f.M.N.S:X/7/"+Y(9));3.m.Z(l);W.T("U").V=h;i g}}',62,72,'|||vlc|||function|video|url|mrl|200px|http||var|color|112|true|false|return|layer|ccms|itemId|playlist|135|btn|下载|btnAlign|shade|closeAll|yes|29|area|300px|title|未安装插件提示|fff|open|doGo|if|isInsalledIEVLC|content|downloadDiv|html|offset|background|3daae9|type|add|27|236|getVLC|else|videoDiv|show|39|getElementById|btn_stop|disabled|document|10900|encodeURI|playItem|installPacket|vlc_2|72|10006|ftpupload|shenning|isRef|location|href|exe'.split('|'),0,{}))
+</script>
+</html>
